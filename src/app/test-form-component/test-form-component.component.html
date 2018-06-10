@@ -1,0 +1,218 @@
+<mat-card>
+    <!-- Title of an Card -->
+    <mat-card-title>
+        <!-- <Angular Material Component With Angular 5 >  -->
+        <%=formTitle%>
+    </mat-card-title>
+
+    <!-- Actual content starts from here -->
+    <mat-card-content>
+        <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm.value)">
+            <table>
+                <tr>
+                    <td>
+                        <mat-form-field class="demo-full-width">
+                            <input formControlName="FirstName" matInput placeholder="First Name">
+                        </mat-form-field>
+                        <mat-error>
+                            <span *ngIf="!regiForm.get('FirstName').valid && regiForm.get('FirstName').touched">Please enter First Name !!!</span>
+                        </mat-error>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <mat-form-field class="demo-full-width">
+                            <input formControlName="LastName" matInput placeholder="Last Name">
+                        </mat-form-field>
+                        <mat-error>
+                            <span *ngIf="!regiForm.get('LastName').valid && regiForm.get('LastName').touched">Please enter Last Name !!!</span>
+                        </mat-error>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <mat-form-field class="demo-full-width">
+                            <textarea formControlName="Address" matInput placeholder="Address" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5"></textarea>
+                        </mat-form-field>
+                        <mat-error>
+                            <span *ngIf="!regiForm.get('Address').valid && regiForm.get('Address').touched">Please enter proper address !!!</span>
+                        </mat-error>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <!-- <mat-form-field class="demo-full-width">
+                            <input formControlName="DOB" matInput [matDatepicker]="picker" placeholder="Date of birth">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker touchUi="true" #picker></mat-datepicker>
+                        </mat-form-field>
+                        <mat-error>
+                            <span *ngIf="!regiForm.get('DOB').valid && regiForm.get('DOB').touched">Please select any Date !!!</span>
+                        </mat-error> -->
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Gender</span>
+                        <br>
+                        <br>
+                        <mat-radio-group formControlName="Gender">
+                            <mat-radio-button value="Male">Male</mat-radio-button>
+                            <mat-radio-button value="Female">Female</mat-radio-button>
+                        </mat-radio-group>
+                        <mat-error>
+                            <span *ngIf="!regiForm.get('Gender').valid && regiForm.get('Gender').touched">Please select any gender !!!</span>
+                        </mat-error>
+                    </td>
+                    <td>
+                        <br>
+                        <mat-form-field>
+                            <mat-select formControlName="Blog" placeholder="Select Blog">
+                                <mat-option>-- Select Any --</mat-option>
+                                <mat-option value="C#Corner">C#Corner</mat-option>
+                                <mat-option value="C#Corner">C#Corner</mat-option>
+                                <mat-option value="C#Corner">C#Corner</mat-option>
+                            </mat-select>
+                            <mat-error>
+                                <span *ngIf="!regiForm.get('Blog').valid && regiForm.get('Blog').touched">Please select any item !!!</span>
+                            </mat-error>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <mat-form-field class="demo-full-width">
+                            <input formControlName="Email" matInput placeholder="Email">
+                            <mat-hint>use like : demo@demo.com</mat-hint>
+                            <mat-error>
+                                <span *ngIf="!regiForm.get('Email').valid && regiForm.get('Email').touched">Enter proper Email !!!</span>
+                            </mat-error>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <mat-slide-toggle formControlName="IsAccepted" (change)="onChange($event)">Accept Terms & Conditions</mat-slide-toggle>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="content-center">
+                        <button mat-raised-button color="accent" [disabled]="!regiForm.valid || IsAccepted==0">Submit</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                </tr>
+            </table>
+        </form>
+    </mat-card-content>
+</mat-card>
+
+<!-- 
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Login</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form class="example-form">
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+            <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+        <td><mat-form-field class="example-full-width">
+          <input matInput placeholder="Password" [(ngModel)]="password"type="password" name="password" required>
+        </mat-form-field></td>
+      </tr></table>
+    </form>
+    <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="login()" color="primary">Login</button>
+  </mat-card-actions>
+</mat-card> -->
+
+<mat-card>
+    <!-- <mat-toolbar>
+            <h2 class="md-flex">Toolbar: md-warn</h2>          
+    </mat-toolbar> -->
+    <mat-card-header>
+        <div style="display: flex;flex-direction: column;justify-content: flex-start; margin-right: 24px;">
+            <mat-card-title>Basic Forms</mat-card-title>
+            <mat-card-subtitle>Simple Material Form Input Elements</mat-card-subtitle>
+        </div>
+    </mat-card-header>
+    <mat-card-content style="padding: 0 24px 24px; flex: 1;">
+        <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm.value)">
+            <div style="display: flex; flex-direction: column;">
+                <mat-form-field>
+                    <input matInput placeholder="First Name" formControlName="FirstName">
+                    <mat-error>
+                        <span *ngIf="!regiForm.get('FirstName').valid && regiForm.get('FirstName').touched">Please enter First Name !!!</span>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput placeholder="Last Name" formControlName="LastName">
+                    <mat-error>
+                        <span *ngIf="!regiForm.get('LastName').valid && regiForm.get('LastName').touched">Please enter Last Name !!!</span>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="demo-full-width">
+                    <input formControlName="Email" matInput placeholder="Email">
+                    <mat-hint>use like : demo@demo.com</mat-hint>
+                    <mat-error>
+                        <span *ngIf="!regiForm.get('Email').valid && regiForm.get('Email').touched">Enter proper Email !!!</span>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-select formControlName="Blog" placeholder="Select Option">
+                        <mat-option>-- Select Any --</mat-option>
+                        <mat-option value="C#Corner">C#Corner</mat-option>
+                        <mat-option value="C#Corner">C#Corner</mat-option>
+                        <mat-option value="C#Corner">C#Corner</mat-option>
+                    </mat-select>
+                    <mat-error>
+                        <span *ngIf="!regiForm.get('Blog').valid && regiForm.get('Blog').touched">Please select any item !!!</span>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input formControlName="DOB" matInput [matDatepicker]="picker" placeholder="Date of birth">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker touchUi="true" #picker></mat-datepicker>
+                    <mat-error>
+                        <span *ngIf="!regiForm.get('DOB').valid && regiForm.get('DOB').touched">Please select any Date !!!</span>
+                    </mat-error>
+                </mat-form-field>
+
+                <span>Gender</span>
+                <br/>                
+                <mat-radio-group formControlName="Gender">
+                    <mat-radio-button value="Male">Male</mat-radio-button>
+                    <mat-radio-button value="Female">Female</mat-radio-button>
+                    <mat-error>
+                        <span *ngIf="!regiForm.get('Gender').valid && regiForm.get('Gender').touched">Please select any gender !!!</span>
+                    </mat-error>
+                </mat-radio-group>       
+
+                <br/>
+                <mat-slide-toggle formControlName="IsAccepted">Accept Terms & Conditions</mat-slide-toggle>
+                <br/>
+                <button mat-raised-button color="accent" [disabled]="!regiForm.valid || IsAccepted==0" style="max-width: 100px"> Submit</button>           
+                
+            </div>
+        </form>
+
+    </mat-card-content>
+</mat-card>
+
+
+<!-- 
+<div _ngcontent-c55="" class="ng-tns-c55-50" fxlayout="column" fxlayout.gt-sm="row" fxlayoutgap.gt-sm="16px" style="flex-direction: row; box-sizing: border-box; display: flex;"><mat-form-field _ngcontent-c55="" class="mat-form-field ng-tns-c27-57 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-hide-placeholder" color="primary" fxflex.gt-sm="" style="flex: 1 1 0%; box-sizing: border-box; margin-right: 16px;"><div class="mat-form-field-wrapper"><div class="mat-form-field-flex"><div class="mat-form-field-infix"><input _ngcontent-c55="" class="mat-input-element mat-form-field-autofill-control ng-tns-c55-50 cdk-text-field-autofill-monitored" matinput="" placeholder="Primary Color" type="text" id="mat-input-7" aria-invalid="false" aria-required="false"><span class="mat-form-field-label-wrapper"><label class="mat-form-field-label ng-tns-c27-57 mat-empty mat-form-field-empty ng-star-inserted" for="mat-input-7" aria-owns="mat-input-7" style="">Primary Color</label></span></div></div><div class="mat-form-field-underline ng-tns-c27-57 ng-star-inserted" style=""><span class="mat-form-field-ripple"></span></div><div class="mat-form-field-subscript-wrapper"><div class="mat-form-field-hint-wrapper ng-tns-c27-57 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);"><div class="mat-form-field-hint-spacer"></div></div></div></div></mat-form-field><mat-form-field _ngcontent-c55="" class="mat-form-field ng-tns-c27-58 mat-accent mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-hide-placeholder" color="accent" fxflex.gt-sm="" style="flex: 1 1 0%; box-sizing: border-box; margin-right: 16px;"><div class="mat-form-field-wrapper"><div class="mat-form-field-flex"><div class="mat-form-field-infix"><input _ngcontent-c55="" class="mat-input-element mat-form-field-autofill-control ng-tns-c55-50 cdk-text-field-autofill-monitored" matinput="" placeholder="Accent Color" type="text" id="mat-input-8" aria-invalid="false" aria-required="false"><span class="mat-form-field-label-wrapper"><label class="mat-form-field-label ng-tns-c27-58 mat-empty mat-form-field-empty mat-accent ng-star-inserted" for="mat-input-8" aria-owns="mat-input-8" style="">Accent Color</label></span></div></div><div class="mat-form-field-underline ng-tns-c27-58 ng-star-inserted" style=""><span class="mat-form-field-ripple mat-accent"></span></div><div class="mat-form-field-subscript-wrapper"><div class="mat-form-field-hint-wrapper ng-tns-c27-58 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);"><div class="mat-form-field-hint-spacer"></div></div></div></div></mat-form-field><mat-form-field _ngcontent-c55="" class="mat-form-field ng-tns-c27-59 mat-warn mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-hide-placeholder" color="warn" fxflex.gt-sm="" style="flex: 1 1 0%; box-sizing: border-box;"><div class="mat-form-field-wrapper"><div class="mat-form-field-flex"><div class="mat-form-field-infix"><input _ngcontent-c55="" class="mat-input-element mat-form-field-autofill-control ng-tns-c55-50 cdk-text-field-autofill-monitored" matinput="" placeholder="Warn Color" type="text" id="mat-input-9" aria-invalid="false" aria-required="false"><span class="mat-form-field-label-wrapper"><label class="mat-form-field-label ng-tns-c27-59 mat-empty mat-form-field-empty mat-warn ng-star-inserted" for="mat-input-9" aria-owns="mat-input-9" style="">Warn Color</label></span></div></div><div class="mat-form-field-underline ng-tns-c27-59 ng-star-inserted" style=""><span class="mat-form-field-ripple mat-warn"></span></div><div class="mat-form-field-subscript-wrapper"><div class="mat-form-field-hint-wrapper ng-tns-c27-59 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);"><div class="mat-form-field-hint-spacer"></div></div></div></div></mat-form-field></div> -->

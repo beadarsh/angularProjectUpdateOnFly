@@ -1,0 +1,125 @@
+<mat-card>
+    <!-- <mat-toolbar>
+            <h2 class="md-flex">Toolbar: md-warn</h2>          
+    </mat-toolbar> -->
+    <mat-card-header>
+        <div style="display: flex;flex-direction: column;justify-content: flex-start; margin-right: 24px;">
+            <mat-card-title>
+                Basic Forms
+            </mat-card-title>
+            <mat-card-subtitle>
+                Sample Material Form page
+            </mat-card-subtitle>
+        </div>
+    </mat-card-header>
+    <mat-card-content style="padding: 0 24px 24px; flex: 1;">
+        <form [formGroup]="form" (ngSubmit)="onFormSubmit(form.value)">
+            <div style="display: flex; flex-direction: column;">
+                
+                        
+                            <mat-form-field>
+                                <input matInput placeholder="First Name" formControlName="firstName">
+                                <mat-error>
+                                    <span *ngIf="!form.get('firstName').valid && form.get('firstName').touched">
+                                        Please enter first name !!!</span>
+                                </mat-error>
+                            </mat-form-field>
+                                                                    
+                                        
+                        
+                            <mat-form-field>
+                                <input matInput placeholder="Last Name" formControlName="lastName">
+                                <mat-error>
+                                    <span *ngIf="!form.get('lastName').valid && form.get('lastName').touched">
+                                        Please enter last name !!!</span>
+                                </mat-error>
+                            </mat-form-field>
+                                                                    
+                                        
+                        
+                                    <mat-form-field>
+                                        <mat-select formControlName="carModel" placeholder="Please Select">
+                                            <mat-option>-- Select Any --</mat-option>
+                                            
+                                                <mat-option [value]="1">
+                                                    Audi
+                                                </mat-option>
+                                                
+                                                <mat-option [value]="2">
+                                                    Bmw
+                                                </mat-option>
+                                                
+                                                <mat-option [value]="3">
+                                                    Jaguar
+                                                </mat-option>
+                                                
+                                        </mat-select>
+                                        <mat-error>
+                                            <span *ngIf="!form.get('carModel').valid && form.get('carModel').touched">
+                                                Please enter car model type !!!</span>
+                                        </mat-error>
+                                    </mat-form-field>
+                                                                            
+                                        
+                        
+                            <mat-form-field>
+                                <input matInput placeholder="Address" formControlName="address">
+                                <mat-error>
+                                    <span *ngIf="!form.get('address').valid && form.get('address').touched">
+                                        Please enter address !!!</span>
+                                </mat-error>
+                            </mat-form-field>
+                                                                    
+                                        
+                        
+                                                <mat-form-field >
+                                                        <input formControlName="email" matInput placeholder="enter email address">
+                                                        <mat-hint>use like : demo@demo.com</mat-hint>
+                                                        <mat-error>
+                                                            <span *ngIf="!form.get('email').valid && form.get('email').touched">Please enter email address !!!</span>
+                                                        </mat-error>
+                                                </mat-form-field>
+                                                                                
+                                        
+                        
+                                        <mat-form-field>
+                                            <input formControlName="dob" matInput [matDatepicker]="picker" placeholder="enter date of birth">
+                                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                            <mat-datepicker touchUi="true" #picker></mat-datepicker>
+                                            <mat-error>
+                                                <span *ngIf="!form.get('dob').valid && form.get('dob').touched">Please enter date of birth !!!</span>
+                                            </mat-error>
+                                        </mat-form-field>
+                                                                                
+                                        
+                        
+                                        <span>Gender</span>
+                                        <br/>                
+                                        <mat-radio-group formControlName="gender">
+                                            
+                                        <mat-radio-button value="1">Male</mat-radio-button>
+                                                                                    
+                                        <mat-radio-button value="2">female</mat-radio-button>
+                                                                                    
+                                        </mat-radio-group>   
+                                        <mat-error>
+                                            <span *ngIf="!form.get('gender').valid && form.get('gender').touched">Please enter Gender !!!</span>
+                                        </mat-error>
+                                                                      
+                                                                                
+                                        
+                        
+
+                                             <br/>
+                                            <mat-slide-toggle formControlName="'agreeToTerms'">agreeToTerms</mat-slide-toggle>
+                                                                                
+                                        
+                        
+                                            <br/>
+                                            <button mat-raised-button color="accent" [disabled]="!form.valid || IsAccepted==0" style="max-width: 100px"> Submit</button>
+                                                                                
+                                        
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>
