@@ -12,6 +12,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GenCodeComponent } from './gen-code/gen-code.component';
 import { UpdateOnFlyGithubComponent } from './update-on-fly-github/update-on-fly-github.component';
 
+import { MaterialNavBarComponent } from './material-nav-bar/material-nav-bar.component';
+
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,9 @@ import { UpdateOnFlyGithubComponent } from './update-on-fly-github/update-on-fly
     StackblitzComponent,
     TestFormComponentComponent,
     GenCodeComponent,
-    UpdateOnFlyGithubComponent
+    UpdateOnFlyGithubComponent,
+    MaterialNavBarComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -27,7 +32,8 @@ import { UpdateOnFlyGithubComponent } from './update-on-fly-github/update-on-fly
     BrowserAnimationsModule,
     MaterialModule,    
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FlexLayoutModule
   ],
   bootstrap: [AppComponent]
 })

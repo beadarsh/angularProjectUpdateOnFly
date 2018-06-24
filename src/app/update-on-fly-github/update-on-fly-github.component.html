@@ -1,3 +1,32 @@
-<p>
-  update-on-fly-github works!
-</p>
+<!-- Normal recommended menu -->
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" style="border-right-color: rgba(0, 0, 0, 0.5);
+  border-right-style: solid;
+  border-right-width: 1px;"
+  fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+   [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
+    <mat-toolbar color="primary">Menu</mat-toolbar>
+    <mat-nav-list>
+      <mat-list-item>
+        <mat-icon mat-list-icon>home</mat-icon>
+        <p matLine>Home</p>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon>home</mat-icon>
+        <p matLine>Home</p>
+      </mat-list-item>
+      <a mat-list-item [ngStyle]="{'padding-left': (1 * 12) + 'px'}" (click)="onItemSelected(item)">
+          <mat-icon mat-list-icon>Home</mat-icon>
+          <p matLine>Home</p>       
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button mat-icon-button id="menu" (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>customText1</span>
+    </mat-toolbar>
+  </mat-sidenav-content>
+</mat-sidenav-container>

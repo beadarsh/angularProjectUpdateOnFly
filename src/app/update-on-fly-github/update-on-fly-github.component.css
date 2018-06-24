@@ -1,0 +1,21 @@
+/* .mat-sidenav-content {
+    margin-left: 0 !important;
+    flex: 1 1 auto;
+}
+
+.mat-sidenav {
+    flex: 0 1 auto;
+} */
+  
+.mat-sidenav {
+    width: 360px;
+  }
+  .mat-sidenav-container {
+    background-color: white !important;
+    height: 100vh;
+  }
+
+  .mat-list-item {
+    padding: 8px 0;
+  }
+  
